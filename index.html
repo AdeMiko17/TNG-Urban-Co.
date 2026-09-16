@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNG Urban Co. - Brand Lokal Tangerang | CEO Ade Miko Putra Gunanda</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Syne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            accent: '#f97316', // Tangerang Orange
+                            accentHover: '#ea580c',
+                            muted: '#64748b',
+                            light: '#f8fafc',
+                            card: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Syne"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased custom-scrollbar selection:bg-brand-accent selection:text-white">
+
+    <div class="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600 text-white text-xs py-2 px-4 text-center font-medium tracking-wide shadow-inner">
+        <span>🚀 PROMO SPESIAL TANGERANG PRIDE: Gratis Ongkir Seluruh Jabodetabek + Disk. 15% Gunakan Kode: <strong class="underline decoration-wavy">TNGURBAN</strong></span>
+    </div>
+
+    <nav class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 transition-all duration-300" id="mainNav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-accent flex items-center justify-center font-display font-extrabold text-xl text-white shadow-lg shadow-orange-500/30 group-hover:scale-105 transition-transform">
+                        T
+                    </div>
+                    <div>
+                        <span class="font-display text-2xl font-extrabold tracking-wider text-white block leading-none">TNG<span class="text-brand-accent"> URBAN CO.</span></span>
+                        <span class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold block mt-1">Tangerang Streetwear</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-300">
+                    <a href="#beranda" class="hover:text-brand-accent transition-colors">Beranda</a>
+                    <a href="#koleksi" class="hover:text-brand-accent transition-colors">Koleksi</a>
+                    <a href="#tentang" class="hover:text-brand-accent transition-colors">Kisah Founder</a>
+                    <a href="#tangerang-pride" class="hover:text-brand-accent transition-colors">TNG Heritage</a>
+                    <a href="#outlet" class="hover:text-brand-accent transition-colors">Outlet Store</a>
+                </div>
+
+                <!-- Right Action Buttons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Icon Trigger -->
+                    <button onclick="toggleSearchModal()" class="p-2 text-slate-300 hover:text-brand-accent transition-colors rounded-lg hover:bg-slate-800/50" title="Cari Produk">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+
+                    <!-- Cart Button with Counter -->
+                    <button onclick="toggleCartDrawer()" class="relative p-2 text-slate-300 hover:text-brand-accent transition-colors rounded-lg hover:bg-slate-800/50">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-brand-accent text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-brand-dark">0</span>
+                    </button>
+
+                    <!-- CTA Button -->
+                    <a href="#koleksi" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-sm font-semibold bg-brand-accent text-white hover:bg-brand-accentHover shadow-lg shadow-orange-500/20 transition-all hover:scale-105">
+                        Belanja Sekarang
+                    </a>
+
+                    <!-- Mobile Menu Toggle Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-brand-accent font-medium">Beranda</a>
+            <a href="#koleksi" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-brand-accent font-medium">Koleksi Produk</a>
+            <a href="#tentang" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-brand-accent font-medium">Tentang Founder</a>
+            <a href="#tangerang-pride" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-brand-accent font-medium">Tangerang Pride</a>
+            <a href="#outlet" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-brand-accent font-medium">Lokasi Store</a>
+        </div>
+    </nav>
+
+    <section id="beranda" class="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden">
+        <!-- Decorative Glow Backgrounds -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/60 text-xs font-semibold text-brand-accent">
+                        <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span>Authentic Tangerang Streetwear Co.</span>
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+                        Gaya Urban Berjiwa <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500">Kota Tangerang.</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Dirintis oleh <strong class="text-white font-semibold underline decoration-orange-500/50">Ade Miko Putra Gunanda</strong>, TNG Urban Co. menghadirkan busana street fashion premium dengan perpaduan kultur lokal Banten dan estetika modern berskala internasional.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
+                        <a href="#koleksi" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-center shadow-xl shadow-orange-500/25 transition-all hover:-translate-y-0.5">
+                            Jelajahi Koleksi <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <a href="#tentang" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-white font-semibold text-center border border-slate-700/80 transition-all">
+                            Kisah Pendiri
+                        </a>
+                    </div>
+
+                    <!-- Micro Badge Stats -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="font-display font-extrabold text-2xl sm:text-3xl text-white">100%</div>
+                            <div class="text-xs text-slate-400 mt-1">Karya Anak Tangerang</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-extrabold text-2xl sm:text-3xl text-white">25K+</div>
+                            <div class="text-xs text-slate-400 mt-1">Komunitas Pelanggan</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-extrabold text-2xl sm:text-3xl text-white">4.9 ★</div>
+                            <div class="text-xs text-slate-400 mt-1">Rating Kepuasan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Card -->
+                        <div class="relative rounded-3xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-800">
+                            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80" 
+                                 alt="TNG Urban Co. Lookbook" 
+                                 class="w-full h-[480px] object-cover hover:scale-105 transition-transform duration-700"
+                                 onerror="this.src='https://placehold.co/800x1000/1e293b/ffffff?text=TNG+Urban+Co.+Lookbook'">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+
+                            <div class="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-2xl">
+                                <p class="text-xs uppercase font-bold text-brand-accent tracking-widest">Editions Vol. 04</p>
+                                <h3 class="font-display text-lg font-bold text-white mt-1">Benteng City Heritage Oversized Tee</h3>
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="text-white font-extrabold text-sm">Rp 189.000</span>
+                                    <button onclick="quickBuy(1)" class="text-xs bg-white text-slate-950 font-bold px-3 py-1.5 rounded-lg hover:bg-brand-accent hover:text-white transition-colors">
+                                        + Beli
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div class="absolute -top-4 -left-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white p-4 rounded-2xl shadow-xl flex items-center space-x-3 border border-orange-400/30">
+                            <i class="fa-solid fa-award text-2xl"></i>
+                            <div>
+                                <p class="text-xs text-orange-100 font-medium">Top Brand UMKM</p>
+                                <p class="text-sm font-bold">Tangerang 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-slate-900/60 border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-800/40 border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-brand-accent flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Bahan Heavyweight 24s/16s</h4>
+                        <p class="text-xs text-slate-400 mt-0.5">Katun combed murni pilihan adem & tahan lama.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-800/40 border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-brand-accent flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-[#000] fa-paint-roller"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Sablon Plastisol HD</h4>
+                        <p class="text-xs text-slate-400 mt-0.5">Detail tajam, tidak pecah dan tahan cuci berkali-kali.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-800/40 border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-brand-accent flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Pengiriman Kilat TNG</h4>
+                        <p class="text-xs text-slate-400 mt-0.5">Sameday & Instant delivery untuk area Tangerang Raya.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-800/40 border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-brand-accent flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Garansi Retur 7 Hari</h4>
+                        <p class="text-xs text-slate-400 mt-0.5">Tukar ukuran/produk jika cacat tanpa ribet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="koleksi" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-brand-accent font-bold text-xs uppercase tracking-widest block mb-2">Katalog Resmi TNG Urban Co.</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Koleksi Terpopuler</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filterContainer">
+                <button onclick="filterProducts('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-brand-accent text-white transition-all">Semua</button>
+                <button onclick="filterProducts('tshirt')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">T-Shirt</button>
+                <button onclick="filterProducts('outerware')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Hoodie & Jacket</button>
+                <button onclick="filterProducts('accessories')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Aksesoris</button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="productsGrid">
+            <!-- Dynamic products will be rendered by JS -->
+        </div>
+    </section>
+
+    <section id="tentang" class="py-20 bg-slate-900 border-y border-slate-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Founder Photo -->
+                <div class="lg:col-span-5">
+                    <div class="relative group">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-orange-500 to-amber-500 rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500"></div>
+                        <div class="relative rounded-2xl overflow-hidden border border-slate-700 bg-slate-800">
+                            <img src="Foto 3X4.jpeg" 
+                                 alt="Ade Miko Putra Gunanda - Founder TNG Urban Co." 
+                                 class="w-full h-[500px] object-cover object-top hover:scale-105 transition-all duration-500"
+                                 onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-6">
+                                <h3 class="font-display text-2xl font-bold text-white">Ade Miko Putra Gunanda</h3>
+                                <p class="text-brand-accent text-sm font-semibold mt-1">Founder & Chief Executive Officer (CEO)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Founder Story Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-md bg-orange-500/10 border border-orange-500/20 text-brand-accent text-xs font-bold uppercase tracking-widest">
+                        Sosok Di Balik Brand
+                    </div>
+
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                        "Membawa Karakter Tangerang ke Panggung Fashion Nasional & Global."
+                    </h2>
+
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        Berawal dari passion mendalam terhadap streetwear dan kecintaan pada kota kelahirannya, <strong class="text-white">Ade Miko Putra Gunanda</strong> mendirikan TNG Urban Co. di Tangerang. Ade Miko melihat potensi besar anak muda Tangerang yang kreatif namun membutuhkan representasi identitas fesyen yang otentik.
+                    </p>
+
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        Di bawah kepemimpinan Ade Miko Putra Gunanda, brand ini konsisten memberdayakan penjahit lokal Tangerang, menjaga kualitas material standar ekspor, serta mengintegrasikan unsur sejarah Benteng Tangerang ke dalam narasi desain modern.
+                    </p>
+
+                    <!-- Quote Box -->
+                    <div class="p-6 rounded-2xl bg-slate-800/80 border-l-4 border-brand-accent shadow-inner space-y-3">
+                        <p class="italic text-slate-200 text-sm sm:text-base">
+                            "Lokal bukan berarti terbatas. Lewat setiap jahitan dan desain TNG Urban Co., kami membuktikan bahwa karya pemuda Tangerang mampu bersaing dalam hal presisi, gaya, dan nilai seni."
+                        </p>
+                        <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">
+                            — Ade Miko Putra Gunanda (CEO TNG Urban Co.)
+                        </div>
+                    </div>
+
+                    <!-- Signature / Vision Points -->
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check-circle text-brand-accent text-lg"></i>
+                            <span class="text-sm font-medium text-slate-200">Pemberdayaan Penjahit Lokal</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check-circle text-brand-accent text-lg"></i>
+                            <span class="text-sm font-medium text-slate-200">Bahan Eco-Friendly Cotton</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check-circle text-brand-accent text-lg"></i>
+                            <span class="text-sm font-medium text-slate-200">Desain Edisi Terbatas</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check-circle text-brand-accent text-lg"></i>
+                            <span class="text-sm font-medium text-slate-200">Komunitas Underground TNG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-900/80 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <h2 class="font-display text-3xl font-extrabold text-white">Kata Mereka Tentang TNG Urban Co.</h2>
+                <p class="text-slate-400 text-sm mt-2">Testimoni nyata dari pelanggan setia dan figur publik lokal.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="p-6 rounded-2xl bg-slate-800 border border-slate-700/60 space-y-4">
+                    <div class="flex text-amber-400 text-sm space-x-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        "Bahannya sumpah tebel banget tapi nggak panas pas dipakai nongkrong di Pasar Lama malam hari. Bangga banget Tangerang punya brand sekelas ini buatan mas Ade Miko!"
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-slate-700 flex items-center justify-center font-bold text-white text-xs">
+                            RF
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Rian Firmansyah</p>
+                            <p class="text-[10px] text-slate-400">BSD City, Tangerang</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="p-6 rounded-2xl bg-slate-800 border border-slate-700/60 space-y-4">
+                    <div class="flex text-amber-400 text-sm space-x-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        "Sablon plastisol di Hoodie TNG Urban Co. gokil presisinya. Udah dicuci berkali-kali tetap gak mengelupas. Cutting-an oversized-nya pas banget di badan!"
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-slate-700 flex items-center justify-center font-bold text-white text-xs">
+                            AS
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Anindya Sifa</p>
+                            <p class="text-[10px] text-slate-400">Gading Serpong</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="p-6 rounded-2xl bg-slate-800 border border-slate-700/60 space-y-4">
+                    <div class="flex text-amber-400 text-sm space-x-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        "Fast response dan pengiriman instan cuma 1 jam nyampe lokasi. Pelayanan tim Ade Miko top banget. Suksest terus brand lokal Tangerang!"
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-slate-700 flex items-center justify-center font-bold text-white text-xs">
+                            BP
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Bagas Pratama</p>
+                            <p class="text-[10px] text-slate-400">Cikokol, Kota Tangerang</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="outlet" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 space-y-6">
+                <span class="text-brand-accent font-bold text-xs uppercase tracking-widest block">Offline Store</span>
+                <h2 class="font-display text-3xl font-extrabold text-white">Kunjungi Flagship Store Kami di Tangerang</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Cobalah secara langsung bahan berkualitas premium kami, rasakan kenyamanan fitting room, dan nikmati hidangan kopi khas studio TNG Urban Co.
+                </p>
+
+                <!-- Outlets List -->
+                <div class="space-y-4">
+                    <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start space-x-4">
+                        <i class="fa-solid fa-location-dot text-brand-accent text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">TNG Urban Co. Flagship Store Pasar Lama</h4>
+                            <p class="text-xs text-slate-400 mt-1">Jl. Kisamaun No. 88, Sukasari, Kec. Tangerang, Kota Tangerang, Banten 15118</p>
+                            <p class="text-xs text-orange-400 font-semibold mt-1">Buka Setiap Hari: 10.00 - 22.00 WIB</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start space-x-4">
+                        <i class="fa-solid fa-location-dot text-brand-accent text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">TNG Urban Co. Concept Store BSD</h4>
+                            <p class="text-xs text-slate-400 mt-1">Ruko BSD Boulevard Block B3 No. 12, Serpong, Tangerang Selatan</p>
+                            <p class="text-xs text-orange-400 font-semibold mt-1">Buka Setiap Hari: 10.00 - 21.00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Placeholder Interactive Box -->
+            <div class="lg:col-span-7">
+                <div class="rounded-3xl overflow-hidden border border-slate-700 bg-slate-800 h-[400px] relative flex flex-col justify-between p-6 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.8), rgba(15,23,42,0.95)), url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=80');">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-map-pin mr-1"></i> Live Location Tangerang</span>
+                        <a href="https://maps.google.com" target="_blank" class="text-xs text-slate-300 hover:text-white underline">Buka Google Maps <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+                    </div>
+
+                    <div class="space-y-2 bg-slate-900/90 p-5 rounded-2xl border border-slate-700/80 backdrop-blur-md max-w-md">
+                        <p class="text-xs text-brand-accent font-bold">PUSAT PRODUKSI & HEADQUARTER</p>
+                        <h4 class="text-white font-bold text-base">TNG Urban Co. Studio & Workshop</h4>
+                        <p class="text-xs text-slate-400">Di bawah arahan CEO Ade Miko Putra Gunanda, seluruh proses riset bahan, sampel, hingga packaging dipusatkan di studio utama Kota Tangerang.</p>
+                        <div class="pt-2 flex items-center space-x-4">
+                            <a href="https://wa.me/6285283092785?text=Halo%20TNG%20Urban%20Co.,%20saya%20ingin%20bertanya%20produk" target="_blank" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300">
+                                <i class="fa-brands fa-whatsapp text-sm mr-1"></i> Hubungi WA: 085283092785
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp CTA Button -->
+    <a href="https://wa.me/6285283092785?text=Halo%20TNG%20Urban%20Co.,%20saya%20ingin%20bertanya%20mengenai%20produk" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="fixed bottom-6 left-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-4 py-3 rounded-full shadow-2xl flex items-center space-x-2 transition-all hover:scale-105 group border-2 border-emerald-400/50"
+       title="Chat WhatsApp CS TNG Urban Co.">
+        <i class="fa-brands fa-whatsapp text-2xl group-hover:rotate-12 transition-transform"></i>
+        <span class="text-xs font-bold hidden sm:inline-block">Chat CS (0852-8309-2785)</span>
+    </a>
+
+    <footer class="bg-slate-950 border-t border-slate-800 pt-16 pb-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Newsletter CTA Box -->
+            <div class="mb-16 p-8 rounded-3xl bg-gradient-to-r from-orange-600/20 via-slate-900 to-amber-600/20 border border-orange-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="font-display text-2xl font-bold text-white">Dapatkan Diskon 10% Rilisan Pertama</h3>
+                    <p class="text-xs text-slate-400 mt-1">Daftarkan email kamu untuk promo eksklusif & informasi secret drop TNG Urban Co.</p>
+                </div>
+                <form onsubmit="handleSubscribe(event)" class="flex w-full md:w-auto space-x-2">
+                    <input type="email" required placeholder="Masukkan alamat email..." class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent w-full md:w-64">
+                    <button type="submit" class="bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-xs px-6 py-3 rounded-xl transition-all shrink-0">
+                        Gabung
+                    </button>
+                </form>
+            </div>
+
+            <!-- Main Footer Links Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-accent flex items-center justify-center font-display font-bold text-white">T</div>
+                        <span class="font-display text-xl font-extrabold text-white">TNG<span class="text-brand-accent"> URBAN CO.</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+                        TNG Urban Co. adalah brand pakaian lokal asal Tangerang yang berdedikasi menciptakan pakaian streetwear berkualitas tinggi dengan rasa bangga akan identitas daerah.
+                    </p>
+                    <p class="text-xs text-slate-300 font-medium">
+                        Pendiri / CEO: <span class="text-white font-bold">Ade Miko Putra Gunanda</span>
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-brand-accent transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-brand-accent transition-colors"><i class="fa-brands fa-tiktok text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-brand-accent transition-colors"><i class="fa-brands fa-youtube text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Navigasi</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#beranda" class="hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#koleksi" class="hover:text-white transition-colors">Koleksi Produk</a></li>
+                        <li><a href="#tentang" class="hover:text-white transition-colors">Kisah Founder</a></li>
+                        <li><a href="#tangerang-pride" class="hover:text-white transition-colors">TNG Heritage</a></li>
+                        <li><a href="#outlet" class="hover:text-white transition-colors">Lokasi Outlet</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Product Categories -->
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Kategori</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#koleksi" onclick="filterProducts('tshirt')" class="hover:text-white transition-colors">Oversized T-Shirt</a></li>
+                        <li><a href="#koleksi" onclick="filterProducts('outerware')" class="hover:text-white transition-colors">Heavyweight Hoodie</a></li>
+                        <li><a href="#koleksi" onclick="filterProducts('outerware')" class="hover:text-white transition-colors">Coach Jacket TNG</a></li>
+                        <li><a href="#koleksi" onclick="filterProducts('accessories')" class="hover:text-white transition-colors">Headwear & Caps</a></li>
+                        <li><a href="#koleksi" onclick="filterProducts('accessories')" class="hover:text-white transition-colors">Tote Bag & Sling Bag</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Bantuan -->
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Layanan Customer</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" onclick="showNotification('Fitur Panduan Ukuran sedang dibuka.')" class="hover:text-white transition-colors">Panduan Ukuran (Size Chart)</a></li>
+                        <li><a href="#" onclick="showNotification('Kebijakan retur: Retur mudah 7 hari kerja.')" class="hover:text-white transition-colors">Kebijakan Pengembalian</a></li>
+                        <li><a href="#" onclick="showNotification('Pengiriman via JNE, J&T, SiCepat & GrabExpress.')" class="hover:text-white transition-colors">Informasi Pengiriman</a></li>
+                        <li><a href="https://wa.me/6285283092785" target="_blank" class="hover:text-white transition-colors text-emerald-400 font-semibold"><i class="fa-brands fa-whatsapp mr-1"></i> WA: 0852-8309-2785</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 TNG Urban Co. Tangerang. Founded by Ade Miko Putra Gunanda. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Designed & Crafted with Pride in Tangerang, Indonesia 🇮🇩</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer (Slide-Over) -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-slate-900 border-l border-slate-800 text-slate-200 flex flex-col">
+                <!-- Cart Header -->
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <h3 class="font-display font-bold text-lg text-white flex items-center">
+                        <i class="fa-solid fa-bag-shopping text-brand-accent mr-2"></i> Keranjang Belanja
+                    </h3>
+                    <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white p-2">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar" id="cartItemsList">
+                    <!-- Items rendered dynamically by JS -->
+                </div>
+
+                <!-- Cart Footer Summary -->
+                <div class="p-6 border-t border-slate-800 bg-slate-950 space-y-4">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-slate-400">Subtotal</span>
+                        <span class="font-bold text-white" id="cartSubtotal">Rp 0</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-slate-400">Ongkos Kirim (Tangerang)</span>
+                        <span class="text-emerald-400 font-bold">GRATIS</span>
+                    </div>
+                    <div class="border-t border-slate-800 pt-3 flex justify-between text-base font-bold">
+                        <span class="text-white">Total</span>
+                        <span class="text-brand-accent" id="cartTotal">Rp 0</span>
+                    </div>
+                    <button onclick="checkoutSimulated()" class="w-full py-3.5 bg-brand-accent hover:bg-brand-accentHover text-white font-bold rounded-xl shadow-lg shadow-orange-500/20 transition-all text-sm">
+                        Lanjut ke Pembayaran <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Product Modal -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeQuickView()"></div>
+        <div class="relative bg-slate-900 border border-slate-700 rounded-3xl max-w-2xl w-full p-6 sm:p-8 overflow-hidden z-10 space-y-6">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div id="quickViewContent" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Dynamic Quick View Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleSearchModal()"></div>
+        <div class="relative bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full p-4 z-10 shadow-2xl">
+            <div class="relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Cari kaos, hoodie, topi, atau seri Tangerang..." class="w-full bg-slate-800 border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-accent">
+            </div>
+            <div id="searchResults" class="mt-4 max-h-60 overflow-y-auto space-y-2 custom-scrollbar">
+                <p class="text-xs text-slate-500 text-center py-4">Ketik kata kunci untuk mencari produk...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 space-y-3 pointer-events-none"></div>
+
+    <script>
+        // Sample Products Database
+        const products = [
+            {
+                id: 1,
+                name: "Benteng City Heritage Oversized Tee",
+                category: "tshirt",
+                price: 189000,
+                rating: "4.9",
+                image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80",
+                desc: "Kaos potongan oversized berbahan Heavyweight Cotton Combed 24s. Sablon HD Plastisol mengangkat ornamen sejarah Tangerang.",
+                tag: "Best Seller"
+            },
+            {
+                id: 2,
+                name: "TNG Underground Heavyweight Hoodie",
+                category: "outerware",
+                price: 359000,
+                rating: "5.0",
+                image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80",
+                desc: "Hoodie tebal 380 GSM berbahan Fleece Premium. Sangat hangat, nyaman, dan tahan angin untuk malam hari.",
+                tag: "New Release"
+            },
+            {
+                id: 3,
+                name: "Kisamaun Street Typography Shirt",
+                category: "tshirt",
+                price: 175000,
+                rating: "4.8",
+                image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=600&q=80",
+                desc: "Kaos streetwear berkarakter kuat dengan tipografi terinspirasi dari sudut jalanan kuno Kisamaun Tangerang.",
+                tag: "Popular"
+            },
+            {
+                id: 4,
+                name: "BSD Tech-Utility Coach Jacket",
+                category: "outerware",
+                price: 389000,
+                rating: "4.9",
+                image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80",
+                desc: "Jaket coach kasual dengan bahan micro polyester waterproof ringan, cocok untuk iklim perkotaan Tangerang.",
+                tag: "Limited"
+            },
+            {
+                id: 5,
+                name: "TNG Urban Co. Signature Dad Hat Cap",
+                category: "accessories",
+                price: 119000,
+                rating: "4.7",
+                image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80",
+                desc: "Topi baseball bergaya vintage dengan bordiran komputer rapi logo TNG Urban Co. Tangerang.",
+                tag: "Essential"
+            },
+            {
+                id: 6,
+                name: "Cikokol Heavy Tote Bag Canvas",
+                category: "accessories",
+                price: 99000,
+                rating: "4.9",
+                image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+                desc: "Tote bag bahan kanvas super tebal berkapasitas besar untuk laptop dan perlengkapan harian.",
+                tag: "Promo"
+            },
+            {
+                id: 7,
+                name: "Gading Serpong Boxy Fit Box Tee",
+                category: "tshirt",
+                price: 185000,
+                rating: "4.8",
+                image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80",
+                desc: "T-Shirt kerah tebal potongan boxy fit memberikan siluet tubuh lebih proporsional.",
+                tag: "New"
+            },
+            {
+                id: 8,
+                name: "Ade Miko Edition Crewneck Sweatshirt",
+                category: "outerware",
+                price: 329000,
+                rating: "5.0",
+                image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80",
+                desc: "Crewneck edisi kolektor yang ditandatangani desainnya oleh founder Ade Miko Putra Gunanda.",
+                tag: "Signature"
+            }
+        ];
+
+        // Global Cart State
+        let cart = [];
+
+        // Render Products
+        function renderProducts(items) {
+            const grid = document.getElementById('productsGrid');
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-500">Tidak ada produk ditemukan.</div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map(product => `
+                <div class="rounded-2xl bg-slate-800/80 border border-slate-700/70 overflow-hidden flex flex-col justify-between group hover:border-brand-accent transition-all duration-300 hover:-translate-y-1">
+                    <div>
+                        <!-- Image Container -->
+                        <div class="relative h-64 overflow-hidden bg-slate-900">
+                            <img src="${product.image}" 
+                                 alt="${product.name}" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/600x600/1e293b/ffffff?text=${encodeURIComponent(product.name)}'">
+                            
+                            <span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow-md">
+                                ${product.tag}
+                            </span>
+
+                            <button onclick="openQuickView(${product.id})" class="absolute bottom-3 right-3 bg-slate-900/80 hover:bg-brand-accent text-white p-2.5 rounded-xl backdrop-blur-md transition-colors shadow-lg" title="Lihat Detail">
+                                <i class="fa-solid fa-eye text-xs"></i>
+                            </button>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-5 space-y-2">
+                            <div class="flex justify-between items-center text-xs text-slate-400">
+                                <span class="capitalize">${product.category}</span>
+                                <span class="text-amber-400 font-bold"><i class="fa-solid fa-star mr-1"></i>${product.rating}</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base leading-snug group-hover:text-brand-accent transition-colors line-clamp-1">
+                                ${product.name}
+                            </h3>
+                            <p class="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+                                ${product.desc}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer -->
+                    <div class="p-5 pt-0 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block">Harga</span>
+                            <span class="font-extrabold text-white text-base">Rp ${product.price.toLocaleString('id-ID')}</span>
+                        </div>
+                        <button onclick="addToCart(${product.id})" class="bg-slate-700 hover:bg-brand-accent text-white p-2.5 rounded-xl font-bold text-xs transition-colors flex items-center space-x-1.5">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Beli</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Functionality
+        function filterProducts(category) {
+            // Update Active Class on Buttons
+            const buttons = document.querySelectorAll('#filterContainer .filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-accent', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+
+            event.target.classList.remove('bg-slate-800', 'text-slate-300');
+            event.target.classList.add('bg-brand-accent', 'text-white');
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // Cart Operations
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingIndex = cart.findIndex(item => item.id === productId);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            showNotification(`"${product.name}" ditambahkan ke keranjang.`);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+            showNotification("Produk dihapus dari keranjang.");
+        }
+
+        function changeQty(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if (!item) return;
+
+            item.qty += delta;
+            if (item.qty <= 0) {
+                removeFromCart(productId);
+            } else {
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            // Update Count Badge
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartCountBadge').innerText = totalItems;
+
+            // Render Items List
+            const list = document.getElementById('cartItemsList');
+            if (cart.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-16 text-slate-500">
+                        <i class="fa-solid fa-bag-shopping text-4xl mb-3 text-slate-600"></i>
+                        <p class="text-sm">Keranjang kamu masih kosong.</p>
+                        <button onclick="toggleCartDrawer()" class="mt-4 text-xs font-bold text-brand-accent hover:underline">
+                            Mulai Belanja Now
+                        </button>
+                    </div>
+                `;
+            } else {
+                list.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-slate-800/80 border border-slate-700/60">
+                        <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded-lg">
+                        <div class="flex-1 ml-3 mr-2">
+                            <h4 class="text-xs font-bold text-white line-clamp-1">${item.name}</h4>
+                            <p class="text-xs text-brand-accent font-semibold mt-0.5">Rp ${(item.price * item.qty).toLocaleString('id-ID')}</p>
+                            <div class="flex items-center space-x-2 mt-2">
+                                <button onclick="changeQty(${item.id}, -1)" class="w-5 h-5 rounded bg-slate-700 text-white text-xs flex items-center justify-center hover:bg-slate-600">-</button>
+                                <span class="text-xs text-white font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${item.id}, 1)" class="w-5 h-5 rounded bg-slate-700 text-white text-xs flex items-center justify-center hover:bg-slate-600">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-slate-500 hover:text-rose-400 p-2">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Subtotal Calculation
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            document.getElementById('cartSubtotal').innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+            document.getElementById('cartTotal').innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function quickBuy(productId) {
+            addToCart(productId);
+            toggleCartDrawer();
+        }
+
+        // Quick View Modal Logic
+        function openQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const modal = document.getElementById('quickViewModal');
+            const container = document.getElementById('quickViewContent');
+
+            container.innerHTML = `
+                <div class="rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 h-64 sm:h-auto">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                </div>
+                <div class="space-y-4 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-brand-accent font-bold uppercase tracking-wider">${product.tag} • ${product.category}</span>
+                        <h3 class="font-display text-xl font-bold text-white mt-1">${product.name}</h3>
+                        <div class="text-amber-400 text-xs mt-1"><i class="fa-solid fa-star"></i> ${product.rating} Rating Pelanggan</div>
+                        <p class="text-slate-300 text-xs mt-3 leading-relaxed">${product.desc}</p>
+                        <div class="mt-4 p-3 rounded-xl bg-slate-800/80 text-xs text-slate-400">
+                            <strong>Garansi TNG Studio:</strong> Kaos 100% Original Tangerang, jahitan rantai standar distro premium.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-extrabold text-white mb-4">Rp ${product.price.toLocaleString('id-ID')}</div>
+                        <button onclick="addToCart(${product.id}); closeQuickView();" class="w-full py-3 bg-brand-accent hover:bg-brand-accentHover text-white font-bold rounded-xl shadow-lg shadow-orange-500/20 transition-all text-xs">
+                            + Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+        }
+
+        // Search Functionality
+        function toggleSearchModal() {
+            const modal = document.getElementById('searchModal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                document.getElementById('searchInput').focus();
+            }
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('searchResults');
+
+            if (!query) {
+                resultsContainer.innerHTML = `<p class="text-xs text-slate-500 text-center py-4">Ketik kata kunci untuk mencari produk...</p>`;
+                return;
+            }
+
+            const matched = products.filter(p => 
+                p.name.toLowerCase().includes(query) || 
+                p.desc.toLowerCase().includes(query) ||
+                p.category.toLowerCase().includes(query)
+            );
+
+            if (matched.length === 0) {
+                resultsContainer.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">Tidak ada produk yang cocok dengan "${query}".</p>`;
+            } else {
+                resultsContainer.innerHTML = matched.map(p => `
+                    <div onclick="openQuickView(${p.id}); toggleSearchModal();" class="flex items-center space-x-3 p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 cursor-pointer transition-colors">
+                        <img src="${p.image}" class="w-10 h-10 object-cover rounded-lg">
+                        <div>
+                            <p class="text-xs font-bold text-white">${p.name}</p>
+                            <p class="text-[10px] text-brand-accent font-semibold">Rp ${p.price.toLocaleString('id-ID')}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Checkout Simulation
+        function checkoutSimulated() {
+            if (cart.length === 0) {
+                showNotification("Keranjang Anda masih kosong!");
+                return;
+            }
+            toggleCartDrawer();
+            showNotification("🎉 Pesanan berhasil diproses! Tim TNG Urban Co. akan mengirimkan konfirmasi via WhatsApp ke 085283092785.");
+            cart = [];
+            updateCartUI();
+        }
+
+        // Newsletter Handler
+        function handleSubscribe(e) {
+            e.preventDefault();
+            showNotification("Terima kasih telah berlangganan! Kupon diskon 10% telah dikirim.");
+            e.target.reset();
+        }
+
+        // Custom Notification Toast System
+        function showNotification(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto bg-slate-800 border border-brand-accent/50 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center space-x-2 transition-all duration-300 transform translate-y-2 opacity-0';
+            toast.innerHTML = `
+                <i class="fa-solid fa-circle-check text-brand-accent text-sm"></i>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // Initialize App
+        window.onload = function() {
+            renderProducts(products);
+            updateCartUI();
+        };
+    </script>
+</body>
+</html>
